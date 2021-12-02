@@ -19,16 +19,18 @@ const BugForm = () => {
     if (params.id) {
       try {
         await axios.put(`/api/bugs/${params.id}`, bugData);
-      } catch (err) {
-        // Handle error
         navigate("/bugs");
+      } catch (err) {
+        // Handle
+        alert("Error occured in Update");
       }
     } else {
       try {
         await axios.post(`/api/bugs`, bugData);
+        navigate("/bugs");
       } catch (err) {
         // Handle error
-        navigate("/bugs");
+        alert("Error occured in Create");
       }
     }
   };

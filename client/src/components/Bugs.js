@@ -2,10 +2,6 @@ import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
 
-const dummyBugs = [
-  { id: 1, name: "dummy bug1", description: "desc 1" },
-  { id: 2, name: "dummy bug2", description: "desc 2" },
-];
 const Bugs = () => {
   const [bugs, setBugs] = useState([]);
   useEffect(() => {
@@ -16,11 +12,7 @@ const Bugs = () => {
       let res = await axios.get("/api/bugs");
       setBugs(res.data);
     } catch (err) {
-      // Uncomment when BE working
-      // alert("TODO: ERROR IN UI error occured");
-
-      // // get rid of backend is working
-      setBugs(dummyBugs);
+      alert("TODO: ERROR IN UI error occured");
     }
   };
   const deleteBug = async (id) => {
@@ -30,9 +22,7 @@ const Bugs = () => {
       // remove from UI
       setBugs(bugs.filter((b) => b.id !== id));
     } catch (err) {
-      // UNCOMMENT WHEN BE WORKING
-      // alert("Error occured deleting bug");
-      setBugs(bugs.filter((b) => b.id !== id));
+      alert("Error occured deleting bug");
     }
   };
   const renderBugs = () => {
