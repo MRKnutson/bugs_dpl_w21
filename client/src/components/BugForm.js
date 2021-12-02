@@ -2,9 +2,10 @@ import axios from "axios";
 import React, { useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router";
 const BugForm = () => {
-  const { bug, y } = useLocation();
-  const x = useLocation();
-  console.log(x);
+  const location = useLocation();
+  // what is going on here?
+  const { bug } = location.state ? location.state : {};
+
   const [name, setName] = useState(bug ? bug.name : "");
   const [description, setDescription] = useState(bug ? bug.description : "");
 

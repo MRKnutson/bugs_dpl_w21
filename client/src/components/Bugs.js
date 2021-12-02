@@ -42,8 +42,11 @@ const Bugs = () => {
           <h1>{bug.name}</h1>
           <h1>{bug.description}</h1>
           <button onClick={() => deleteBug(bug.id)}>delete</button>
-          <Link to={{ pathname: `/bugs/${bug.id}/edit`, bug: bug, y: 1 }}>
+          <Link to={`/bugs/${bug.id}/edit`} state={{ bug, x: 1 }}>
             Edit
+          </Link>
+          <Link to={`/bugs/${bug.id}/vaccines`} state={{ bug }}>
+            Show
           </Link>
         </div>
       );
