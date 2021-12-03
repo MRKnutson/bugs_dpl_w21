@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
 import { Link } from "react-router-dom";
+import BoxShadow from "./BoxShadow";
 
 const Bugs = () => {
   const [bugs, setBugs] = useState([]);
@@ -28,7 +29,7 @@ const Bugs = () => {
   const renderBugs = () => {
     return bugs.map((bug) => {
       return (
-        <div style={{ border: "4px solid green" }}>
+        <div className="bug-container">
           <h1>{bug.name}</h1>
           <h1>{bug.description}</h1>
           <button onClick={() => deleteBug(bug.id)}>delete</button>
@@ -43,11 +44,10 @@ const Bugs = () => {
     });
   };
   return (
-    <div>
-      <h1>Bugs</h1>
+    <BoxShadow header="Bugs">
       <Link to="/bugs/new">New Bug</Link>
-      {renderBugs()}
-    </div>
+      <div className="bugs-container">{renderBugs()}</div>
+    </BoxShadow>
   );
 };
 

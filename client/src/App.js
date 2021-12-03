@@ -11,14 +11,16 @@ function App() {
   return (
     <>
       <Navbar />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/bugs" element={<Bugs />} />
-        <Route path="/bugs/:id/vaccines" element={<BugVaccines />} />
-        <Route path="/bugs/new" element={<BugForm />} />
-        <Route path="/bugs/:id/edit" element={<BugForm />} />
-        <Route path="/about" element={<About />} />
-      </Routes>
+      <div style={{ margin: "40px" }}>
+        <Routes>
+          <Route path="/" element={<Home />} />
+          <Route path="/bugs" element={<Bugs />} />
+          <Route path="/bugs/:id/vaccines" element={<BugVaccines />} />
+          <Route path="/bugs/new" element={<BugForm />} />
+          <Route path="/bugs/:id/edit" element={<BugForm />} />
+          <Route path="/about" element={<About />} />
+        </Routes>
+      </div>
     </>
   );
 }

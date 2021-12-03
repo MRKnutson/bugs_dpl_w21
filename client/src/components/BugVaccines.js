@@ -1,12 +1,16 @@
 import axios from "axios";
 import React, { useState, useEffect } from "react";
 import { useLocation } from "react-router";
+import BoxShadow from "./BoxShadow";
+import Bug from "./Bug";
 import Vaccine from "./Vaccine";
 import VaccineNew from "./VaccineNew";
 
 const BugVaccines = (props) => {
   const [vaccines, setVaccines] = useState([]);
+
   const location = useLocation();
+  console.log("location: ", location);
   const { bug } = location.state;
 
   useEffect(() => {
@@ -22,6 +26,7 @@ const BugVaccines = (props) => {
       alert("error getting data");
     }
   };
+
   const renderVaccines = () =>
     vaccines.map((v) => <Vaccine key={v.id} {...v} />);
 
@@ -35,14 +40,10 @@ const BugVaccines = (props) => {
   };
 
   return (
-    <div>
-      <h1>BUG: {bug.name}</h1>
-      <p>{bug.description}</p>
-      <hr />
-      <h3>Vaccines</h3>
+    <BoxShadow header="Vaccines">
       <VaccineNew bugId={bug.id} addVaccine={addVaccine} />
       {renderVaccines()}
-    </div>
+    </BoxShadow>
   );
 };
 

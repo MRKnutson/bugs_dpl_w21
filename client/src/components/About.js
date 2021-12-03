@@ -1,9 +1,10 @@
 import React from "react";
+import BoxShadow from "./BoxShadow";
 const About = () => {
   return (
-    <div>
-      <h1>About</h1>
-    </div>
+    <BoxShadow header="About">
+      <p>About us here</p>
+    </BoxShadow>
   );
 };
 

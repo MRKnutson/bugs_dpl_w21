@@ -32,6 +32,7 @@ class Api::VaccinesController < ApplicationController
   end
 
   def destroy
+    puts "destroy called"
     render json: @vaccine.destroy
   end
 
@@ -42,10 +43,12 @@ class Api::VaccinesController < ApplicationController
   end
 
   def set_bug
+    puts "set_bug called"
     @bug = Bug.find(params[:bug_id])
   end
 
   def set_vaccine
+    puts "set_vaccine called"
     @vaccine = @bug.vaccines.find(params[:id])
   end
 end

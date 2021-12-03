@@ -1,6 +1,7 @@
 import axios from "axios";
 import React, { useState } from "react";
 import { useParams, useNavigate, useLocation } from "react-router";
+import BoxShadow from "./BoxShadow";
 const BugForm = () => {
   const location = useLocation();
   // what is going on here?
@@ -35,8 +36,7 @@ const BugForm = () => {
     }
   };
   return (
-    <div>
-      <h1>{params.id ? "Update" : "New"} Bug Form</h1>
+    <BoxShadow header={params.id ? "Update Bug" : "New Bug"}>
       <p>id: {params.id}</p>
       <form onSubmit={handleSubmit}>
         <p>name</p>
@@ -55,7 +55,7 @@ const BugForm = () => {
         />
         <button>{params.id ? "Update" : "Create"}</button>
       </form>
-    </div>
+    </BoxShadow>
   );
 };
 
